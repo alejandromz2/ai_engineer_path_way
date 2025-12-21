@@ -11,7 +11,7 @@
 **Python “production-grade” (Muy alta)**
 - [ ] Python avanzado: typing (`typing`, `Protocol`, `TypedDict`), dataclasses, context managers  
 - [ ] Concurrencia: `asyncio`, `httpx`, `aiohttp`, pools, backpressure  
-- [ ] Packaging: `pyproject.toml`, `poetry`/`uv`, versionado semver, wheels  
+- [X] Packaging: `pyproject.toml`, `poetry`/`uv`, versionado semver, wheels  
 - [ ] Calidad: `ruff`, `mypy/pyright`, `pytest`, `hypothesis`, coverage  
 - [ ] Performance: profiling (`cProfile`, `py-spy`), memoria, vectorización (NumPy)  
 - [ ] Logging serio: logging JSON, correlación de requests (trace/span ids)

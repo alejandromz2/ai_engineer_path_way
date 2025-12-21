@@ -1,0 +1,42 @@
+{
+    "typeCheckingMode": "strict",
+    "include": [
+      "**/*.py"
+    ],
+    "exclude": [
+      "**/__pycache__",
+      "**/.*",
+      "**/node_modules",
+      ".venv",
+      "venv",
+      "**/__pycache__/**"
+    ],
+    "reportMissingImports": "error",
+    "reportMissingTypeStubs": "warning",
+    "reportUnusedImport": "warning",
+    "reportUnusedClass": "warning",
+    "reportUnusedFunction": "warning",
+    "reportUnusedVariable": "warning",
+    "reportGeneralTypeIssues": "error",
+    "reportOptionalMemberAccess": "error",
+    "reportOptionalSubscript": "error",
+    "reportPrivateImportUsage": "error",
+    "reportUnknownMemberType": "error",
+    "reportUnknownArgumentType": "error",
+    "reportUnknownParameterType": "error",
+    "reportUnknownVariableType": "error",
+    "reportUnknownLambdaType": "error",
+    "reportUntypedFunctionDecorator": "warning",
+    "reportUntypedClassDecorator": "warning",
+    "reportUntypedBaseClass": "warning",
+    "reportUntypedNamedTuple": "error",
+    "reportCallInDefaultInitializer": "error",
+    "reportUnnecessaryIsInstance": "warning",
+    "reportUnnecessaryCast": "warning",
+    "reportAssertAlwaysTrue": "warning",
+    "reportSelfClsParameterName": "warning",
+    "reportImplicitStringConcatenation": "warning",
+    "reportIncompatibleVariableOverride": "error",
+    "reportIncompatibleMethodOverride": "error",
+    "reportAssignmentType": "error"
+  }
