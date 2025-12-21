@@ -1,13 +1,37 @@
 # Fase 0 - Semana 4: Concurrencia (asyncio vs threads vs multiprocessing)
 
-## Asyncio
+## Asyncio (Python)
 
-Synchronous: Similar a Subway, toman tu pedido y te arman el sandwich, y no atienden a otro cliente hasta terminar tu orden
+### Intuición rápida (analogía)
+- **Síncrono:** como un Subway: toman tu pedido y lo preparan completo antes de atender al siguiente.
+- **Asíncrono:** como un McDonald’s: toman tu pedido, lo “enciolan”, y mientras tanto atienden a otros clientes.
 
-Asynchronous: Como McDonalds, toman tu pedido y siguen con el siguiente cliente
+> Importante: **asíncrono ≠ más rápido** por defecto.  
+> Asíncrono significa “mejor aprovechamiento del tiempo de espera”, no “más CPU”.
 
-Asynchronous != faster
-Asyncio es singlethreaded y corre en un único procesador. asyncio corre típicamente en un solo thread con multitasking cooperativo (las coroutines ceden control con await), por eso brilla en I/O-bound. Para CPU-bound, lo usual es usar procesos (o librerías que liberen el GIL), o delegar a thread/process pools para no bloquear el event loop.
+### Qué es `asyncio`
+- `asyncio` habilita **concurrencia** usando **multitarea cooperativa**:
+  - Las *coroutines* avanzan hasta encontrar un `await`.
+  - En ese `await`, **ceden el control** al *event loop*, que puede ejecutar otras tareas.
+- En la práctica, `asyncio` suele correr en **un solo hilo (single-threaded)** y típicamente en **un solo core** (salvo que explícitamente delegates trabajo a threads/procesos).
+
+### Cuándo brilla
+✅ **I/O-bound** (esperas frecuentes):
+- Requests HTTP, DB, colas, sockets, lectura/escritura de archivos remotos, etc.
+- Cuando el cuello de botella es **“esperar”** (red/disco), `asyncio` puede aumentar mucho el throughput.
+
+### Cuándo NO es la herramienta principal
+⚠️ **CPU-bound** (cómputo pesado):
+- Si haces cálculo intenso en Python puro, bloquearás el *event loop*.
+- Para CPU-bound, lo común es:
+  - **Multiprocessing / ProcessPoolExecutor** (paralelismo real en múltiples cores)
+  - Librerías que **liberan el GIL** (NumPy, pandas, PyTorch, etc.)
+  - O mover trabajo pesado a servicios externos (batch jobs, workers)
+
+### Regla práctica
+- **Asyncio = concurrencia eficiente para I/O**
+- **Procesos (o GIL-free libs) = paralelismo para CPU**
+- Si “se siente lento”, primero identifica si el problema es **I/O** o **CPU**.
 
 ## 1) Función síncrona (sync)
 - `sync_function(test_params: str) -> str`
