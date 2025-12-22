@@ -165,4 +165,6 @@
 - `# Pero no queremos solo correr funciones sincronas dentro de nuestro event loop, nosotros queremos usar concurrencia`
 
 
-# 39:00 -> https://www.youtube.com/watch?v=oAkLSJNr5zY
+Python Asyncio -> https://www.youtube.com/watch?v=oAkLSJNr5zY
+
+# 53:51
